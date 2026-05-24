@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "plaid-cli"
+version = "0.1.0"
+description = "Terminal-first Plaid CLI: sync, balance, investments, liabilities, transactions, and more"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Manu Jimenez", email = "manu@arimaka.com"},
+]
+keywords = ["plaid", "banking", "finance", "cli", "terminal"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "plaid-python>=18.0.0",
+    "certifi",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "psycopg[binary]>=3.1",
+]
+link = [
+    "flask>=3.0",
+]
+all = [
+    "psycopg[binary]>=3.1",
+    "flask>=3.0",
+]
+
+[project.scripts]
+plaid = "plaid_cli.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/manuaudio/plaid-cli"
+Repository = "https://github.com/manuaudio/plaid-cli"
+Issues = "https://github.com/manuaudio/plaid-cli/issues"
+
+[tool.setuptools.packages.find]
+include = ["plaid_cli*"]
