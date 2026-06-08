@@ -54,3 +54,8 @@ Issues = "https://github.com/manuaudio/plaid-cli/issues"
 
 [tool.setuptools.packages.find]
 include = ["plaid_cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# No real network calls; no Plaid credentials required — pure logic and SQLite.
+addopts = "-v"
