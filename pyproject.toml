@@ -43,6 +43,9 @@ all = [
     "psycopg[binary]>=3.1",
     "flask>=3.0",
 ]
+test = [
+    "pytest>=7",
+]
 
 [project.scripts]
 plaid = "plaid_cli.__main__:main"
@@ -54,3 +57,7 @@ Issues = "https://github.com/manuaudio/plaid-cli/issues"
 
 [tool.setuptools.packages.find]
 include = ["plaid_cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
