@@ -194,6 +194,20 @@ security find-generic-password -s plaid-cli -a <item_id> -w
 | psycopg | `pip install "plaid-cli[postgres]"` | PostgreSQL backend |
 | certifi | included by default | up-to-date CA bundle for HTTPS |
 
+## Development
+
+Run the test suite:
+
+```bash
+pip install -e ".[test]"
+pytest
+```
+
+Tests live under `tests/` and cover the pure helper functions (`_money`, `_ago`,
+`_item_account_types`, `_parse_plaid_error`, `_balance_request`, the DB-backend
+placeholders, and env-var token resolution). They run fully offline — no Plaid API
+calls, no real Keychain, no real database.
+
 ## Contributing
 
 Issues and pull requests welcome at [github.com/manuaudio/plaid-cli](https://github.com/manuaudio/plaid-cli).
